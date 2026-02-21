@@ -130,8 +130,9 @@ html, body {
 
 .icon-nvt{
   display: inline-block;
-  font-size: 20px;
+  font-size: 30px;
   line-height: 1;
+  font-weight: bold;
 }
 
 .isHidden-nvt{
