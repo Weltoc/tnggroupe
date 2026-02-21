@@ -28,7 +28,8 @@ export default function NavBar() {
     <header className="navbarWrap-nvt">
       <nav className="navbar-nvt" aria-label="Navigation principale">
         <a className="brand-nvt" href="/">
-          <span className="brandMark-nvt" aria-hidden="true" />
+          {/* <span className="brandMark-nvt" aria-hidden="true" /> */}
+          <img src="/tng.png" style={{width: 100 , height: 70}} alt="logo"/>
           <span className="brandText-nvt">TNG GROUPE</span>
         </a>
 
