@@ -461,7 +461,7 @@
   }
 
   .header__image-htg{
-    width: 250%;
+    width: 180%;
     max-width: 560px;  /* ajuste selon ton rendu */
     height: auto;
     object-fit: contain;
