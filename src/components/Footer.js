@@ -58,7 +58,7 @@ export default function Footer() {
               <a className="footer__socialBtn-fts" href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">
                 <FaFacebookF />
               </a>
-              <a className="footer__socialBtn-fts" href="https://tiktok.com" target="_blank" rel="noreferrer" aria-label="TikTok">
+              <a className="footer__socialBtn-fts" href="https://www.tiktok.com/@tnggroupe" target="_blank" rel="noreferrer" aria-label="TikTok">
                 <FaTiktok />
               </a>
               <a className="footer__socialBtn-fts" href="https://wa.me/22871985736" target="_blank" rel="noreferrer" aria-label="WhatsApp">

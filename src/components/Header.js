@@ -93,6 +93,7 @@ export default function Header() {
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={() => setIsPaused(true)}
       onTouchEnd={() => setIsPaused(false)}
+      id="home"
     >
       <div className="header__inner-htg">
         {/* LEFT */}

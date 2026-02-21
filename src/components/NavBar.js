@@ -37,10 +37,19 @@ export default function NavBar() {
         {/* Desktop */}
         <ul className="links-nvt">
           <li className="linkItem-nvt">
-            <a className="link-nvt" href="/">Tel: +228 71 98 57 36</a>
+            <a className="link-nvt" href="#home">Acceuil</a>
           </li>
           <li className="linkItem-nvt">
-            <a className="link-nvt" href="/">TOGO, LOME</a>
+            <a className="link-nvt" href="#about">Qui sommes nous</a>
+          </li>
+          <li className="linkItem-nvt">
+            <a className="link-nvt" href="#guide">Comment ça marche</a>
+          </li>
+          <li className="linkItem-nvt">
+            <a className="link-nvt" href="#avis">Temoignages</a>
+          </li>
+          <li className="linkItem-nvt">
+            <a className="link-nvt" href="#contact">Nous Contacter</a>
           </li>
           <li className="linkItem-nvt">
             <a href="https://wa.me/22871985736"
@@ -79,11 +88,20 @@ export default function NavBar() {
         id="mobileMenu-nvt"
         className={`mobileMenu-nvt ${isOpen ? "isOpen-nvt" : ""}`}
       >
-        <a className="mobileLink-nvt" href="/" onClick={closeMenu}>
-         Tel: +228 71 98 57 36
+        <a className="mobileLink-nvt" href="#home" onClick={closeMenu}>
+         Acceuil
         </a>
-        <a className="mobileLink-nvt" href="/" onClick={closeMenu}>
-          TOGO, LOME
+        <a className="mobileLink-nvt" href="#about" onClick={closeMenu}>
+         Qui sommes nous
+        </a>
+        <a className="mobileLink-nvt" href="#guide" onClick={closeMenu}>
+         Comment ça marche
+        </a>
+        <a className="mobileLink-nvt" href="#avis" onClick={closeMenu}>
+        Temoignages
+        </a>
+        <a className="mobileLink-nvt" href="#contact" onClick={closeMenu}>
+        Nous Contacter
         </a>
 
         <a className="mobileCta-nvt" href="https://wa.me/22871985736"

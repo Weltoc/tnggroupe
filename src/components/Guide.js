@@ -4,7 +4,7 @@ import "./Guide.css";
 
 export default function Guide() {
   return (
-    <section className="guide-ght">
+    <section className="guide-ght" id="guide">
       <div className="guide__inner-ght">
         <h2 className="guide__title-ght">Comment ça marche ?</h2>
         <p className="guide__subtitle-ght">
