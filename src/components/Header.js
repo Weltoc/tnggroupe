@@ -3,7 +3,6 @@ import React, { useMemo, useState, useEffect, useRef, useCallback } from "react"
 import "./Header.css";
 import { FaTiktok, FaWhatsapp , FaMapMarkerAlt} from "react-icons/fa";
 
-import scooter1 from "../assets/rtr.jpg";
 import scooter2 from "../assets/h3.png";
 import scooter4 from "../assets/h4.png";
 import scooter6 from "../assets/h2.png";
@@ -16,10 +15,6 @@ import scooter11 from "../assets/v4.png";
 export default function Header() {
   const slides = useMemo(
     () => [
-      { id: 1, bigTitle: "N-SERIES", redSubtitle: "SMART ESCOOTER", leftInfoTitle: "70KM", leftInfoText: "EXTENDED URBAN RANGE\nLITHIUM-ION REVOLUTION",
-        stats: [{ value: "29", unit: "L", label: "COMPACT CAPACITY" }, { value: "10", unit: "KG", label: "IMPOSSIBLY LIGHT" }, { value: "06", unit: "HRS", label: "RECHARGING TIME" }, { value: "02", unit: "YR", label: "GUARANTEE" }],
-        image: scooter1, alt: "Scooter N-Series",
-      },
       { id: 2, bigTitle: "R-SERIES", redSubtitle: "URBAN COMMUTER", leftInfoTitle: "85KM", leftInfoText: "CITY + SUBURB RANGE\nFAST CHARGE BATTERY",
         stats: [{ value: "32", unit: "L", label: "SMART STORAGE" }, { value: "12", unit: "KG", label: "LIGHT FRAME" }, { value: "05", unit: "HRS", label: "RECHARGING TIME" }, { value: "03", unit: "YR", label: "GUARANTEE" }],
         image: scooter2, alt: "Scooter R-Series",
