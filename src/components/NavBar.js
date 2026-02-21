@@ -35,7 +35,7 @@ export default function NavBar() {
         <div className="spacer-nvt" />
 
         {/* Desktop */}
-        <ul className="links-nvt" role="list">
+        <ul className="links-nvt">
           <li className="linkItem-nvt">
             <a className="link-nvt" href="/">Tel: +228 71 98 57 36</a>
           </li>
