@@ -1,0 +1,25 @@
+{
+  "short_name": "TNG Groupe",
+  "name": "TNG Groupe | Prenez votre moto à crédit dès aujourd’hui",
+  "icons": [
+    {
+      "src": "tng.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "tng.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "tng.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

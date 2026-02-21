@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="500" height="160" viewBox="0 0 500 160" xmlns="http://www.w3.org/2000/svg">
+  <rect width="500" height="160" fill="#0A4BC2"/>
+
+  <!-- Left bubble -->
+  <path d="M40 40 h190 a30 30 0 0 1 30 30 v20 a30 30 0 0 1 -30 30 h-120 l-30 25 v-25 h-40 a30 30 0 0 1 -30 -30 v-20 a30 30 0 0 1 30 -30 z"
+        fill="white"/>
+  <text x="80" y="95" font-family="Arial, Helvetica, sans-serif"
+        font-size="56" font-weight="700" fill="#1A1A1A">BASE</text>
+
+  <!-- Right bubble -->
+  <path d="M270 40 h150 a30 30 0 0 1 30 30 v20 a30 30 0 0 1 -30 30 h-90 l-30 25 v-25 h-30 a30 30 0 0 1 -30 -30 v-20 a30 30 0 0 1 30 -30 z"
+        fill="none" stroke="#6EC1FF" stroke-width="8"/>
+  <text x="300" y="95" font-family="Arial, Helvetica, sans-serif"
+        font-size="56" font-weight="700" fill="#7CFF4F">CLUB</text>
+</svg>
