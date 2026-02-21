@@ -380,7 +380,7 @@
 
   /* Optional: make image a bit smaller so arrows don't overlap too much */
   .header__image-htg {
-    max-height: 320px;
+    max-height: 520px;
   }
   
 }
@@ -461,8 +461,8 @@
   }
 
   .header__image-htg{
-    width: 100%;
-    max-width: 360px;  /* ajuste selon ton rendu */
+    width: 180%;
+    max-width: 560px;  /* ajuste selon ton rendu */
     height: auto;
     object-fit: contain;
   }
