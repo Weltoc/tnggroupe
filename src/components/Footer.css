@@ -251,14 +251,26 @@
     min-width: 100%;
   }
 
-  .footer__nlBtn-fts {
-    width: 100%;
+  /* ✅ 3 colonnes sur la même ligne */
+  .footer__cols-fts{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
   }
 
-  .footer__cols-fts {
-    grid-template-columns: 1fr;
+  .footer__colTitle-fts{
+    font-size: 11px;
+    margin-bottom: 8px;
+  }
+
+  .footer__link-fts{
+    font-size: 11px;
+    line-height: 1.2;
+    word-break: break-word; /* ✅ évite le débordement */
   }
 }
+
+
+
 .footer__brand-fts {
   text-align: left;
 }

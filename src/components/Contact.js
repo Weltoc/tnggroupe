@@ -48,7 +48,7 @@ export default function Contact() {
             <div className="contact__socialGrid-ctc">
               <a
                 className="contact__socialItem-ctc"
-                href="https://www.tiktok.com"
+                href="https://www.tiktok.com/@tnggroupe"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -98,7 +98,7 @@ export default function Contact() {
 
               <a
                 className="contact__socialItem-ctc"
-                href="https://www.google.com/maps?q=Sagbado+IPG"
+                href="https://www.google.com/maps/place/6%C2%B011'43.6%22N+1%C2%B008'41.9%22E/@6.195455,1.1424018,1548m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d6.195455!4d1.1449767?hl=fr&entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D"
                 target="_blank"
                 rel="noreferrer"
               >

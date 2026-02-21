@@ -43,7 +43,10 @@ export default function NavBar() {
             <a className="link-nvt" href="/">TOGO, LOME</a>
           </li>
           <li className="linkItem-nvt">
-            <button className="cta-nvt" >Prendre Rendez-vous →</button>
+            <a href="https://wa.me/22871985736"
+              target="_blank" className="cta-nvt" 
+              rel="noreferrer"
+              >Prendre Rendez-vous →</a>
           </li>
         </ul>
 
@@ -83,7 +86,9 @@ export default function NavBar() {
           TOGO, LOME
         </a>
 
-        <a className="mobileCta-nvt" href="#join" onClick={closeMenu}>
+        <a className="mobileCta-nvt" href="https://wa.me/22871985736"
+              target="_blank" 
+              rel="noreferrer" onClick={closeMenu}>
           Prendre Rendez-vous →
         </a>
       </div>

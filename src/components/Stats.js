@@ -28,9 +28,12 @@ export default function Stats() {
             </p>
 
 
-          <button className="stats__cta-stt" type="button">
+          <a className="stats__cta-stt" href="https://wa.me/22871985736"
+              target="_blank"
+              rel="noreferrer"
+              style={{textDecoration: "none"}}>
             PRENDRE RENDEZ-VOUS
-          </button>
+          </a>
         </div>
 
         {/* CENTER (DIAMOND IMAGE) */}
@@ -58,7 +61,7 @@ export default function Stats() {
 
           <div className="stats__metric-stt">
             <div className="stats__metricValue-stt">70</div>
-            <div className="stats__metricLabel-stt">Engins</div>
+            <div className="stats__metricLabel-stt">Engins Achetés</div>
           </div>
 
           <div className="stats__metric-stt">

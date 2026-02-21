@@ -1,149 +1,187 @@
 // Avis.js
-import React, { useMemo } from "react";
+import React, { useMemo, useRef, useState, useEffect, useCallback } from "react";
 import "./Avis.css";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 export default function Avis() {
   const avis = useMemo(
     () => [
       {
         id: 1,
-        name: "Mehwish",
-        text:
-          "Service très pro. J’ai pu choisir mon engin et comprendre clairement le plan de paiement.",
+        text: "Impressionné par le professionnalisme et l’attention aux détails.",
+        name: "Guy Hawkins",
+        handle: "@guyhawkins",
         avatar:
-          "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=200&q=80",
-        muted: true,
+          "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80",
       },
       {
         id: 2,
-        name: "Elizabeth Jeff",
-        text:
-          "Acompte 40% + paiement petit à petit : simple et rapide. Je recommande fortement.",
+        text: "Une expérience fluide du début à la fin. Je recommande vivement !",
+        name: "Karla Lynn",
+        handle: "@karlalynn98",
         avatar:
-          "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80",
-        active: true,
+          "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80",
       },
       {
         id: 3,
-        name: "Emily Thomas",
-        text:
-          "Très bon accompagnement, conditions accessibles et suivi régulier jusqu’à la fin.",
+        text: "Fiable et digne de confiance. Ça m’a énormément facilité la vie !",
+        name: "Jane Cooper",
+        handle: "@janecooper",
         avatar:
-          "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=200&q=80",
-        muted: true,
+          "https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&fit=crop&w=120&q=80",
       },
       {
         id: 4,
-        name: "Koffi Mensah",
-        text:
-          "J’ai pris ma moto rapidement. Paiement mensuel sans stress, équipe disponible.",
+        text: "Paiement flexible, livraison rapide et excellent suivi. Merci !",
+        name: "Awa Diallo",
+        handle: "@awadiallo",
         avatar:
-          "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80",
-        muted: true,
+          "https://images.unsplash.com/photo-1524502397800-2eeaad7c3fe5?auto=format&fit=crop&w=120&q=80",
       },
       {
         id: 5,
-        name: "Awa Diallo",
-        text:
-          "Explications claires, contrat simple et aucun débordement. Merci pour le sérieux.",
+        text: "Avec 40% d’acompte, j’ai eu mon engin. Le reste petit à petit, top.",
+        name: "Koffi Mensah",
+        handle: "@koffimensah",
         avatar:
-          "https://images.unsplash.com/photo-1524502397800-2eeaad7c3fe5?auto=format&fit=crop&w=200&q=80",
-        muted: true,
+          "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80",
+      },
+      {
+        id: 6,
+        text: "Service sérieux et transparent. Je recommande TNG Groupe.",
+        name: "Emily Thomas",
+        handle: "@emilyt",
+        avatar:
+          "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=120&q=80",
       },
     ],
     []
   );
 
+  const perPageDesktop = 3;
+  const trackRef = useRef(null);
+  const [page, setPage] = useState(0);
+  const [pageCount, setPageCount] = useState(1);
+
+  // calc pages based on viewport
+  const calcPageCount = useCallback(() => {
+    const w = window.innerWidth;
+    const perPage = w <= 560 ? 1 : w <= 980 ? 2 : perPageDesktop;
+    setPageCount(Math.max(1, Math.ceil(avis.length / perPage)));
+  }, [avis.length]);
+
+  useEffect(() => {
+    calcPageCount();
+    window.addEventListener("resize", calcPageCount);
+    return () => window.removeEventListener("resize", calcPageCount);
+  }, [calcPageCount]);
+
+  const scrollToPage = useCallback(
+    (p) => {
+      const el = trackRef.current;
+      if (!el) return;
+      const clamped = Math.max(0, Math.min(pageCount - 1, p));
+      const width = el.clientWidth;
+      el.scrollTo({ left: clamped * width, behavior: "smooth" });
+      setPage(clamped);
+    },
+    [pageCount]
+  );
+
+  const next = () => scrollToPage(page + 1);
+  const prev = () => scrollToPage(page - 1);
+
+  // keep page in sync if user swipes (touch)
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el) return;
+
+    const onScroll = () => {
+      const width = el.clientWidth || 1;
+      const p = Math.round(el.scrollLeft / width);
+      setPage(Math.max(0, Math.min(pageCount - 1, p)));
+    };
+
+    el.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => el.removeEventListener("scroll", onScroll);
+  }, [pageCount]);
+
   return (
-    <section className="avis-avs">
-      <div className="avis__inner-avs">
-        {/* LEFT */}
-        <div className="avis__left-avs">
-          <div className="avis__spark-avs" aria-hidden="true">
-            {/* petite déco “squiggle + étoile” */}
-            <svg
-              className="avis__sparkSvg-avs"
-              viewBox="0 0 140 90"
-              fill="none"
-            >
-              <path
-                d="M10 70 C 35 35, 55 85, 75 55 C 95 25, 110 60, 126 34"
-                className="avis__sparkLine-avs"
-              />
-              <path
-                d="M127 17l4.6 9.8 10.7 1.6-7.8 7.6 1.9 10.7-9.4-5.1-9.4 5.1 1.9-10.7-7.8-7.6 10.7-1.6L127 17z"
-                className="avis__sparkStar-avs"
-              />
-            </svg>
+    <section className="avis-avts" id="avis">
+      <div className="avis__inner-avts">
+        <div className="avis__top-avts">
+          <div className="avis__kicker-avts">Témoignages</div>
+          <h2 className="avis__title-avts">Expériences clients transformatrices</h2>
+        </div>
+
+        <div className="avis__wrap-avts">
+          {/* arrows */}
+          <button
+            className="avis__arrow-avts avis__arrow--left-avts"
+            type="button"
+            onClick={prev}
+            disabled={page === 0}
+            aria-label="Précédent"
+          >
+            <FiChevronLeft />
+          </button>
+
+          <div className="avis__track-avts" ref={trackRef}>
+            {avis.map((a) => (
+              <article key={a.id} className="avis__card-avts">
+                <div className="avis__quote-avts" aria-hidden="true">
+                  <span className="avis__quoteMark-avts">“</span>
+                </div>
+
+                <p className="avis__text-avts">{a.text}</p>
+
+                <div className="avis__user-avts">
+                  <div className="avis__avatar-avts">
+                    <img
+                      className="avis__avatarImg-avts"
+                      src={a.avatar}
+                      alt={a.name}
+                      draggable="false"
+                    />
+                  </div>
+
+                  <div className="avis__userMeta-avts">
+                    <div className="avis__name-avts">{a.name}</div>
+                    <div className="avis__handle-avts">{a.handle}</div>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
 
-          <h2 className="avis__title-avs">
-            Ce que disent <br />
-            nos clients
-          </h2>
-
-          <p className="avis__desc-avs">
-            Découvrez des retours réels sur notre service : acompte, livraison de
-            l’engin et paiement progressif (journalier ou mensuel).
-          </p>
-
-          <button className="avis__cta-avs" type="button">
-            PRENDRE RENDEZ-VOUS
+          <button
+            className="avis__arrow-avts avis__arrow--right-avts"
+            type="button"
+            onClick={next}
+            disabled={page === pageCount - 1}
+            aria-label="Suivant"
+          >
+            <FiChevronRight />
           </button>
         </div>
 
-        {/* RIGHT (scrollable) */}
-        <div className="avis__right-avs">
-          <div className="avis__listWrap-avs">
-            <div className="avis__list-avs" role="list" aria-label="Avis clients">
-              {avis.map((a) => (
-                <article
-                  key={a.id}
-                  className={[
-                    "avis__card-avs",
-                    a.active ? "avis__card--active-avs" : "",
-                    a.muted ? "avis__card--muted-avs" : "",
-                  ].join(" ")}
-                  role="listitem"
-                >
-                  {/* accent line for active */}
-                  <div className="avis__accent-avs" aria-hidden="true" />
+        {/* 3 dashes */}
+        <div className="avis__dots-avts" aria-label="Pagination">
+          {[0, 1, 2].map((i) => {
+            const targetPage = Math.round((i * (pageCount - 1)) / 2);
+            const isActive = pageCount === 1 ? i === 1 : targetPage === page;
 
-                  <div className="avis__cardInner-avs">
-                    <div className="avis__avatar-avs">
-                      <img
-                        className="avis__avatarImg-avs"
-                        src={a.avatar}
-                        alt={a.name}
-                        draggable="false"
-                      />
-                    </div>
-
-                    <div className="avis__content-avs">
-                      <div className="avis__top-avs">
-                        <div className="avis__name-avs">{a.name}</div>
-                        <div className="avis__quote-avs" aria-hidden="true">
-                          {/* double quote */}
-                          <svg
-                            className="avis__quoteSvg-avs"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                          >
-                            <path d="M7.3 10.2c.7-2.4 2.3-4 4.6-4.7v2C10.6 8 9.7 9.1 9.2 10.6c.7-.3 1.3-.4 2-.3 1.5.2 2.7 1.4 2.7 3 0 1.7-1.4 3.1-3.1 3.1-2 0-3.7-1.7-3.7-3.9 0-.7.1-1.5.2-2.3zm9.5 0c.7-2.4 2.3-4 4.6-4.7v2c-1.3.5-2.2 1.6-2.7 3.1.7-.3 1.3-.4 2-.3 1.5.2 2.7 1.4 2.7 3 0 1.7-1.4 3.1-3.1 3.1-2 0-3.7-1.7-3.7-3.9 0-.7.1-1.5.2-2.3z" />
-                          </svg>
-                        </div>
-                      </div>
-
-                      <p className="avis__text-avs">{a.text}</p>
-                    </div>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-
-          {/* petit hint scroll (invisible to screen readers) */}
-          <div className="avis__scrollHint-avs" aria-hidden="true" />
+            return (
+              <button
+                key={i}
+                type="button"
+                className={`avis__dot-avts ${isActive ? "isActive-avts" : ""}`}
+                onClick={() => scrollToPage(targetPage)}
+                aria-label={`Aller à la page ${targetPage + 1}`}
+              />
+            );
+          })}
         </div>
       </div>
     </section>

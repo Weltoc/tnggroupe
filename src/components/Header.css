@@ -411,3 +411,59 @@
     margin-bottom: 8px;
   }
 }
+@media (max-width: 900px){
+  .header__center-htg{
+    display: grid;
+    grid-template-columns: 52px 1fr 52px; /* flèche / image / flèche */
+    align-items: center;
+    column-gap: 12px;
+    width: 100%;
+    position: relative;
+  }
+
+  /* ✅ afficher les flèches sur mobile */
+  .header__arrowBtn-htg{
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    border: 1px solid rgba(0,0,0,0.18);
+    background: rgba(255,255,255,0.92);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.10);
+    cursor: pointer;
+    padding: 0;
+  }
+
+  /* ✅ annule tout position:absolute si tu l’avais */
+  .header__arrowBtn--left-htg,
+  .header__arrowBtn--right-htg{
+    position: static !important;
+    transform: none !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+  }
+
+  .header__arrowIcon-htg{
+    font-size: 26px;
+    line-height: 1;
+    color: rgba(0,0,0,0.75);
+  }
+
+  /* ✅ image bien centrée */
+  .header__imageWrap-htg{
+    display: grid;
+    place-items: center;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .header__image-htg{
+    width: 100%;
+    max-width: 360px;  /* ajuste selon ton rendu */
+    height: auto;
+    object-fit: contain;
+  }
+}
