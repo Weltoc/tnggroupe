@@ -1,0 +1,37 @@
+/* layout.css */
+
+/* tailles sidebar (doivent matcher SideBar.css) */
+:root{
+  --sb-width: 320px;
+  --sb-collapsed-width: 84px;
+}
+
+/* root: plus besoin de flex pour "réserver" la place */
+.layout-root{
+  min-height: calc(100vh - 64px);
+}
+
+/* ✅ on décale le contenu car sidebar = fixed */
+.layout-main{
+  margin-left: var(--sb-width);
+  padding: 18px;
+  min-height: calc(100vh - 64px);
+}
+
+/* ✅ état collapsed */
+.layout-sbCollapsed .layout-main{
+  margin-left: var(--sb-collapsed-width);
+}
+
+/* ✅ état hidden */
+.layout-sbHidden .layout-main{
+  margin-left: 0;
+}
+
+/* Mobile: sidebar devient drawer, donc pas de marge */
+@media (max-width: 768px){
+  .layout-main{
+    margin-left: 0;
+    padding: 24px; /* optionnel: plus adapté mobile */
+  }
+}

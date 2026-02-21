@@ -1,0 +1,262 @@
+/* Anti-débordement global (recommandé) */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root{
+  --navH-nvt: 64px; /* ajuste si tu veux */
+}
+
+/* ✅ NAVBAR FIXE */
+.navbarWrap-nvt{
+  position: fixed; /* ✅ au lieu de sticky */
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--navH-nvt);
+  z-index: 9999;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  width: 100%;
+  max-width: 100%;
+}
+
+/* ✅ la barre interne prend la hauteur */
+.navbar-nvt{
+  width: 100%;
+  max-width: 1200px;
+  height: var(--navH-nvt);
+  margin: 0 auto;
+  padding: 0 16px; /* ✅ padding vertical supprimé car height fixe */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow: hidden;
+}
+
+
+/* Logo */
+.brand-nvt{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #0b0b0b;
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+.brandMark-nvt{
+  width: 22px;
+  height: 22px;
+  border-radius: 7px;
+  background: #fd7e14;
+  flex: 0 0 auto;
+}
+
+.brandText-nvt{
+  font-weight: 700;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+.spacer-nvt{
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Liens desktop */
+.links-nvt{
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 0 0 auto;
+}
+
+.link-nvt{
+  text-decoration: none;
+  color: rgba(0,0,0,0.78);
+  font-weight: 500;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.link-nvt:hover{
+  color: rgba(0,0,0,0.95);
+}
+
+.cta-nvt{
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: #fd7e14;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+  border: 1px solid #fd7e14;
+}
+
+.cta-nvt:hover{
+  filter: brightness(1.05);
+}
+
+/* Bouton hamburger */
+.menuBtn-nvt{
+  display: none; /* visible uniquement sur mobile */
+  border: 0;
+  background: transparent;
+  padding: 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
+.menuBtn-nvt:focus{
+  outline: 2px solid rgba(0,0,0,0.25);
+  outline-offset: 2px;
+}
+
+.icon-nvt{
+  display: inline-block;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.isHidden-nvt{
+  display: none;
+}
+
+/* Menu mobile */
+.mobileMenu-nvt{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+
+  /* animation */
+  transform: translateY(-8px);
+  opacity: 0;
+  pointer-events: none;
+
+  padding: 10px 16px 14px;
+
+  /* empêche le scroll horizontal */
+  contain: layout paint;
+}
+
+.mobileMenu-nvt.isOpen-nvt{
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+  transition: transform 160ms ease, opacity 160ms ease;
+}
+
+.mobileLink-nvt{
+  display: block;
+  padding: 12px 6px;
+  text-decoration: none;
+  color: rgba(0,0,0,0.82);
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+.mobileLink-nvt:hover{
+  background: rgba(0,0,0,0.05);
+}
+
+.mobileCta-nvt{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 999px;
+  background: #fd7e14;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  border: 1px solid #fd7e14;
+}
+
+/* Overlay */
+.overlay-nvt{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease;
+  z-index: 40;
+}
+
+.overlay-nvt.isOpen-nvt{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Responsive */
+@media (max-width: 899px){
+  .links-nvt{
+    display: none; /* cache desktop */
+  }
+  .menuBtn-nvt{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* le header doit être positionné pour le menu absolute */
+  .navbarWrap-nvt{
+    position: fixed;
+  }
+}
+/* Menu mobile AU-DESSUS */
+.mobileMenu-nvt{
+  z-index: 60;
+}
+
+/* Overlay EN-DESSOUS du menu mais au-dessus du reste */
+.overlay-nvt{
+  z-index: 55;
+}
+
+/* Et le header au-dessus du contenu page */
+.navbarWrap-nvt{
+  z-index: 70;
+}
+:root{
+  --navH-nvt: 64px; /* ajuste si nécessaire */
+}
+
+.pageOffset-nvt{
+  padding-top: 10px;
+}
+
+/* hauteur réelle de la navbar (garde stable) */
+.navbarWrap-nvt{
+  height: var(--navH-nvt);
+}
+
+/* pour que la nav garde son contenu centré verticalement */
+.navbar-nvt{
+  height: var(--navH-nvt);
+}

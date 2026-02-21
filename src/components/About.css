@@ -1,0 +1,229 @@
+/* About.css */
+.about-abts {
+  --accent-abts: #fd7e14;
+
+  width: 100%;
+  background: #ffffff;
+  padding: clamp(28px, 4.5vw, 64px) 16px;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.about__inner-abts {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ================= TOP ================= */
+
+.about__top-abts {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(20px, 4vw, 60px);
+  align-items: start;
+  margin-bottom: clamp(24px, 4vw, 40px);
+}
+
+.about__kicker-abts {
+  color: var(--accent-abts);
+  font-weight: 800;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.about__title-abts {
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #111;
+  font-size: clamp(32px, 4.2vw, 52px);
+  line-height: 1.05;
+}
+
+.about__titleAccent-abts {
+  color: #111;
+}
+
+.about__desc-abts {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.7;
+  max-width: 520px;
+}
+
+/* CTA */
+
+.about__cta-abts {
+  margin-top: 20px;
+  border: none;
+  background: var(--accent-abts);
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 14px 28px rgba(253, 126, 20, 0.35);
+  transition: transform 0.15s ease;
+}
+
+.about__cta-abts:hover {
+  transform: translateY(-1px);
+}
+
+/* ================= BOTTOM ================= */
+
+.about__bottom-abts {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(18px, 3vw, 28px);
+}
+
+/* STORY CARD */
+
+.about__storyCard-abts {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 22px 40px rgba(0, 0, 0, 0.15);
+  min-height: 420px;
+}
+
+.about__storyImg-abts {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about__storyOverlay-abts {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 22px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.65),
+    rgba(0, 0, 0, 0.0)
+  );
+  color: #fff;
+}
+
+.about__storyTitle-abts {
+  font-weight: 900;
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.about__storyText-abts {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+/* RIGHT CARDS */
+
+.about__cards-abts {
+  display: grid;
+  gap: 18px;
+}
+
+.about__card-abts {
+  border-radius: 22px;
+  padding: 26px;
+}
+
+.about__card--light-abts {
+  background: rgba(253, 126, 20, 0.18);
+}
+
+.about__card--dark-abts {
+  background: var(--accent-abts);
+  color: #fff;
+}
+
+.about__cardTitle-abts {
+  font-weight: 900;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.about__cardText-abts {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 600;
+  opacity: 0.95;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 980px) {
+  .about__top-abts {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about__bottom-abts {
+    grid-template-columns: 1fr;
+  }
+
+  .about__desc-abts {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .about__cta-abts {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .about__storyCard-abts {
+    min-height: 320px;
+  }
+}
+.about__top-abts {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(20px, 4vw, 60px);
+  align-items: start;
+}
+
+/* alignements desktop */
+.about__leftTop-abts {
+  text-align: left;
+}
+
+.about__rightTop-abts {
+  text-align: right;
+}
+@media (max-width: 980px) {
+  .about__top-abts {
+    grid-template-columns: 1fr;
+    justify-items: center; /* 🔥 centre les blocs */
+    text-align: center;
+  }
+
+  .about__leftTop-abts,
+  .about__rightTop-abts {
+    text-align: center;
+  }
+
+  /* centre le bouton proprement */
+  .about__cta-abts {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* garde une largeur propre pour le texte */
+  .about__desc-abts {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
